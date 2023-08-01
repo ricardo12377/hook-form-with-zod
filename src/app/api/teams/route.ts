@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export async function GET(request: Request) {
   const teams = await prisma.team.findMany();
 
-  return teams;
+  return NextResponse.json({ data: teams }, { status: 200 });
 }
 
 export async function HEAD(request: Request) {}

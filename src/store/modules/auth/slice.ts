@@ -50,7 +50,7 @@ export const authSlice = createSlice({
         getTeamsForRegister.fulfilled,
         (state: LoginState, action: PayloadAction<Team[]>) => {
           state.getTeams.status = "succeeded";
-          state.getTeams.teams = action.payload.map((team) => team);
+          state.getTeams.teams = action.payload;
         }
       )
       .addCase(getTeamsForRegister.rejected, (state: LoginState, action) => {

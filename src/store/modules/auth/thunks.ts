@@ -17,9 +17,13 @@ export const auth = createAsyncThunk(
 export const getTeamsForRegister = createAsyncThunk(
   "auth/register",
   async () => {
-    const response = await api.get("/teams");
+    try {
+      const response = await api.get("/teams");
 
-    return response.data;
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 );
 
